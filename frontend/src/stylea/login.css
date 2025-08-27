@@ -1,0 +1,60 @@
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat, linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+}
+
+.login-form {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(44, 62, 80, 0.15);
+  width: 100%;
+  max-width: 370px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  backdrop-filter: blur(2px);
+}
+
+.login-form h2 {
+  margin-bottom: 0.5rem;
+  color: #2d3a4b;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.login-form input {
+  padding: 0.8rem;
+  border: 1px solid #bfc8d6;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+  background: #f7f9fc;
+}
+
+.login-form input:focus {
+  border-color: #6c63ff;
+  background: #eef2fb;
+}
+
+.login-form button {
+  padding: 0.8rem;
+  background: linear-gradient(90deg, #6c63ff 0%, #48c6ef 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(76, 110, 245, 0.08);
+}
+
+.login-form button:hover {
+  background: linear-gradient(90deg, #5548c8 0%, #36b1e8 100%);
+}
