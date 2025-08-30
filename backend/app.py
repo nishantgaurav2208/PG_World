@@ -108,6 +108,7 @@ def search_properties():
         user_room_type = data.get('room_type', '')
         user_gender = data.get('gender', '')
         user_area = data.get('area', '')
+        user_source = data.get('Source', '')
 
         engine = get_snowflake_engine()
         results_df = pd.DataFrame()
@@ -135,6 +136,7 @@ def search_properties():
         
         print(f"\n🔍 Searching Snowflake for properties with budget: {user_budget}")
         
+        # NOTE: The SQL query now includes the "Source" column in the SELECT statement.
         query = text(f"""
         SELECT "Property Name", "address", "room_type", "gender", "Source", "PRICE", "Price_range"
         FROM {SNOWFLAKE_SCHEMA}."COMBINED_PROPERTY_DATA"
@@ -143,6 +145,7 @@ def search_properties():
           AND "room_type" ILIKE :room_type
           AND "gender" ILIKE :gender
           AND REGEXP_REPLACE(LOWER("address"), '[^a-z0-9 ]', '') ILIKE :area_norm
+          AND "Source" ILIKE :source
         ORDER BY "PRICE" ASC;
         """)
 
@@ -155,6 +158,7 @@ def search_properties():
             'room_type': f"%{user_room_type}%" if user_room_type else '%',
             'gender': f"%{user_gender}%" if user_gender else '%',
             'area_norm': area_norm,
+            'source': f"%{user_source}%" if user_source else '%'
         }
 
         print(f"\n--- DEBUG INFO ---")
@@ -168,10 +172,8 @@ def search_properties():
         print(f"✅ Found {len(results_df)} results in Snowflake.")
 
         if not results_df.empty:
-            # Drop the numeric price column before returning the JSON response
             if 'PRICE' in results_df.columns:
                 results_df = results_df.drop('PRICE', axis=1)
-            # Some connectors may lowercase the column name
             if 'price' in results_df.columns:
                 results_df = results_df.drop('price', axis=1)
             
@@ -184,4 +186,4 @@ def search_properties():
         return jsonify({'error': 'An internal server error occurred.'}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=False, port=5000)

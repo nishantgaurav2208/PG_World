@@ -1,0 +1,249 @@
+/* ===== Global Container ===== */
+.searchform-container {
+  background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+  min-height: 100vh;
+  padding: 40px 15px;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeInBg 1.2s ease-in-out;
+}
+
+@keyframes fadeInBg {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== Card ===== */
+.searchform-card {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 2.5rem;
+  animation: fadeInUp 0.9s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.searchform-card h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #4b6cb7;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* ===== Form Labels ===== */
+.searchform-form label {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 6px;
+  display: block;
+  font-weight: 600;
+}
+
+/* ===== Form Inputs ===== */
+.searchform-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 1.2rem;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background: #fff;   /* keep white background */
+  font-size: 1rem;
+  color: #333;        /* visible text */
+  transition: 0.3s;
+}
+
+.searchform-form input::placeholder {
+  color: #999;
+}
+
+.searchform-form input:focus {
+  background: #fff;
+  border-color: #4b6cb7;
+  box-shadow: 0 0 0 3px rgba(75, 108, 183, 0.2);
+  outline: none;
+}
+
+/* ===== Room Type Pills ===== */
+.roomtype-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.checkbox-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+  padding: 12px 20px;
+  border-radius: 30px;
+  background: #f8faff;
+  border: 1px solid #d0d7e2;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+  transition: all 0.3s ease;
+  user-select: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.checkbox-pill:hover {
+  background: #eef2ff;
+  border-color: #4b6cb7;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(75, 108, 183, 0.15);
+}
+
+/* Hide native checkbox */
+.checkbox-pill input {
+  display: none;
+}
+
+/* Checked (active) state */
+.checkbox-pill input:checked + span {
+  background: linear-gradient(90deg, #4b6cb7, #182848);
+  color: #fff;
+  border-radius: 20px;
+  padding: 8px 18px;
+  box-shadow: 0 4px 12px rgba(75, 108, 183, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Pill text */
+.checkbox-pill span {
+  display: inline-block;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+/* ===== Button ===== */
+.searchform-form button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(90deg, #4b6cb7, #182848);
+  color: white;
+  transition: 0.3s;
+}
+
+.searchform-form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(75, 108, 183, 0.4);
+  background: linear-gradient(90deg, #182848, #4b6cb7);
+}
+
+/* ===== Error ===== */
+.searchform-error {
+  color: #e63946;
+  margin-top: 1.2rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* ===== Results ===== */
+.searchform-results {
+  width: 100%;
+  max-width: 650px;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.searchform-results h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #182848;
+  margin-bottom: 1.2rem;
+}
+
+/* Property cards */
+.searchform-property-list {
+  list-style: none;
+  padding: 0;
+}
+
+.searchform-property-card {
+  border: 1px solid #e0eafc;
+  background: #fff;
+  padding: 20px 18px;
+  margin-bottom: 1rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(44, 62, 80, 0.1);
+  transition: all 0.3s;
+  border-left: 6px solid #74ebd5;
+}
+
+.searchform-property-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 26px rgba(44, 62, 80, 0.2);
+}
+
+.searchform-property-card strong {
+  color: #4b6cb7;
+}
+
+.searchform-property-card a {
+  color: #0077b6;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.searchform-property-card a:hover {
+  text-decoration: underline;
+  color: #182848;
+}
+
+/* ===== Autocomplete ===== */
+.autocomplete-wrapper {
+  position: relative;
+}
+
+.autocomplete-list {
+  position: absolute;
+  z-index: 10;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-top: -10px;
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  max-height: 160px;
+  overflow-y: auto;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.autocomplete-list li {
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.autocomplete-list li:hover {
+  background: #f0f4ff;
+  color: #182848;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .searchform-card, .searchform-results {
+    padding: 1rem;
+    max-width: 100%;
+  }
+}

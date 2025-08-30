@@ -41,7 +41,7 @@ const HomePage = () => {
             <p className="hero-subtitle">
               We compare properties from India's top rental sites to find you the perfect home, effortlessly.
             </p>
-            <button className="btn btn-cta">Find Your PG Now</button>
+           <Link to="/search" className="btn btn-cta">Find Your PG Now</Link>
 
             {/* Trust Badges */}
             <div className="trust-badges">
